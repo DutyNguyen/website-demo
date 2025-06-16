@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Introduction</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #2c3e50;
+            --light-color: #fff;
+            --text-color-light: #ecf0f1;
+            --text-color-dark: #34495e;
+            --bg-light: #f4f7f6;
+            --bg-alt-light: #e6e9ea;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --star-color: #f7cb19;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+        }
+        
+        .page-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 400px;
+            background: var(--secondary-color);
+            color: var(--text-color-light);
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-profile h1 {
+            color: var(--light-color);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-profile p {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h2 {
+            color: var(--light-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-section ul {
+            list-style: none;
+        }
+
+        .sidebar-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .contact-info a {
+            color: var(--text-color-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info i {
+            width: 25px;
+            margin-right: 0.75rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .skills-list .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .star-rating i {
+            color: var(--star-color);
+            margin: 0 1px;
+        }
+        .star-rating .far {
+            color: #7f8c8d;
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            margin-right: 400px;
+        }
+
+        section {
+            padding: 5rem 4rem;
+            transition: background-color 0.3s ease;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--bg-alt-light);
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--bg-light);
+        }
+
+        section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-color-dark);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        #hero {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+        
+        #hero h1 {
+            font-size: 4.5rem;
+            color: var(--light-color);
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        #about p, #focus p {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-color-dark);
+        }
+
+        .knowledge-grid {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2.5rem auto 0 auto;
+        }
+        .knowledge-card {
+            background: var(--light-color);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+            flex: 1; 
+            min-width: 250px; 
+            flex-basis: auto; 
+        }
+        .knowledge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .knowledge-card p {
+            font-size: 1.2rem;
+            color: var(--text-color-dark);
+        }
+
+        #focus .focus-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        #focus .focus-content p, #focus .focus-content ul li { 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem;
+            text-align: left; 
+        }
+        #focus .focus-content ul {
+            list-style: disc; 
+            padding-left: 20px;
+        }
+
+        #projects h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-color-dark);
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 1200px) {
+            .knowledge-grid {
+                max-width: 900px;
+            }
+            .knowledge-card {
+                min-width: 280px; 
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .page-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                right: auto;
+                top: auto;
+                padding-bottom: 1rem;
+            }
+            .main-content {
+                margin-right: 0;
+            }
+            section {
+                padding: 3rem 2rem;
+            }
+            #hero h1 { font-size: 3.5rem; }
+            section h1 { font-size: 2.5rem; }
+            #projects h2 { font-size: 1.5rem; }
+            .knowledge-card {
+                max-width: 100%; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.8rem; }
+            #hero p { font-size: 1.2rem; }
+            section h1 { font-size: 2rem; margin-bottom: 2rem;}
+            #about p, #focus p { font-size: 1rem; }
+            .sidebar-profile img { width: 150px; height: 150px; }
+            .sidebar-profile h1 { font-size: 1.5rem; }
+            .sidebar-section h2 { font-size: 1.1rem; }
+            .contact-info i { margin-right: 0.5rem; }
+            section { padding: 2.5rem 1.5rem; }
+            .knowledge-grid { gap: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            #hero h1 { font-size: 2.2rem; }
+            #hero p { font-size: 1rem; }
+            section h1 { font-size: 1.8rem; }
+            .sidebar { padding: 2rem 1rem; }
+            .sidebar-profile img { width: 120px; height: 120px; }
+            .sidebar-profile h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <main class="main-content">
+            <section id="hero">
+                <h1>Welcome to my website!</h1>
+            </section>
+            <!-- About Section -->
+            <section id="about">
+                <h1>About Me</h1>
+                <p>Hello! I'm **Nguyen Tan Dat**, a second-year student majoring in Computer Science at the Faculty of Special Training Ho Chi Minh City Open University. I am passionate about learning and applying new technologies to solve real-world problems.</p>
+                <p>My goal is to become a proficient software engineer, contributing to innovative solutions that make a positive impact.</p>
+            </section>
+
+            <!-- Knowledge Section -->
+            <section id="knowledge">
+                <h1>My Knowledge Areas</h1>
+                <div class="knowledge-grid">
+                    <div class="knowledge-card">
+                        <p><strong>Computer Science Fundamentals:</strong> Understanding of fundamental aspects such as DSA, OOP, Computer Network, Computer Architecture, System Analysis and Design, Software Engineering Principles.</p>
+                    </div>
+                    <div class="knowledge-card">
+                        <p><strong>Mathematics:</strong> Knowledge in Calculus, Statistics and Probability, Differential Equations, Linear Algebra. </p>
+                    </div>
+                    <div class="knowledge-card">
+                        <p><strong>Database Management:</strong> Experience with relational databases, SQL queries, and database design using SQL Server.</p>
+                    </div>
+                    <div class="knowledge-card">
+                        <p><strong>Machine Learning:</strong> Foundational knowledge in Supervised Learning, Unsupervised Learning, Semi-supervised Learning Algorithms. </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Focus Section -->
+            <section id="focus">
+                <h1>What I'm Focusing On</h1>
+                <div class="focus-content">
+                    <p>I am currently dedicating my time to deepening my understanding and practical experience in the following areas:</p>
+                    <ul>
+                        <li><strong>Web Design:</strong> I'm expanding my skills in building a comprehensive website. </li>
+                        <li><strong>Software Architecture:</strong> Learning about different software architectural patterns and how to design systems that are maintainable, extensible, and performant.</li>
+                        <li><strong>Machine Learning:</strong> Delving into more complex algorithms including Reinforcement Learning. </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- Projects Section -->
+            <section id="projects">
+                <h1>Projects</h1>
+                <h2>(Coming soon...)</h2>
+            </section>
+        </main>
+            <!-- Sidebar  -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <img src="picture_of_me.jpg" alt="">
+                <h1>Nguyen Tan Dat</h1>
+                <p>Computer Science Student</p>
+            </div>
+
+            <nav>
+                <div class="sidebar-section contact-info">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="mailto:tandat3693@gmail.com"><i class="fas fa-envelope"></i> Tandat3693@gmail.com</a></li>
+                        <li><a><i class="fas fa-phone"></i> +84 0788875512</a></li>
+                        <li><a href="https://github.com/DutyNguyen" target="_blank"><i class="fab fa-github"></i> Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/DatNguyen015" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://www.facebook.com/Dat.Nguyn.015/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>
+                            <strong><i>Ho Chi Minh City Open University</i></strong>
+                            <div style="opacity: 0.8;">Computer Science | (2023 - 2027)</div>
+                        </li>
+                        <li>
+                            <strong><i>Kien Luong Highschool</i></strong>
+                            <div style="opacity: 0.8">(2021 - 2023)</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Skills</h2>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <span>C++</span>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <span>Python</span>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <span>Java</span>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <span>SQL Server</span>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <span>HTML/CSS</span>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h2>Languages</h2>
+                    <ul>
+                        <li>Vietnamese (Native)</li>
+                        <li>English (Upper-Intermediate)</li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+    </div>
+
+</body>
+</html>
