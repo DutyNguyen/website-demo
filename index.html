@@ -48,6 +48,7 @@
             min-height: 100vh;
         }
 
+        /* Sidebar */
         .sidebar {
             width: 400px;
             background: var(--secondary-color);
@@ -171,7 +172,16 @@
             text-align: center;
             margin-bottom: 2.5rem;
         }
-        
+
+                #projects h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-color-dark);
+            opacity: 0.8;
+        }
+
+        /* Hero */
         #hero {
             background: var(--primary-color);
             color: var(--light-color);
@@ -189,7 +199,7 @@
             font-size: 1.5rem;
             opacity: 0.9;
         }
-        
+        /* about and focus  */
         #about p, #focus p {
             max-width: 900px;
             margin: 0 auto;
@@ -199,6 +209,21 @@
             color: var(--text-color-dark);
         }
 
+                #focus .focus-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        #focus .focus-content p, #focus .focus-content ul li { 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem;
+            text-align: left; 
+        }
+        #focus .focus-content ul {
+            list-style: disc; 
+            padding-left: 20px;
+        }
+        /* Knowledge */
         .knowledge-grid {
             display: flex;
             flex-wrap: wrap; 
@@ -226,29 +251,6 @@
         .knowledge-card p {
             font-size: 1.2rem;
             color: var(--text-color-dark);
-        }
-
-        #focus .focus-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        #focus .focus-content p, #focus .focus-content ul li { 
-            font-size: 1.3rem; 
-            margin-bottom: 1rem;
-            text-align: left; 
-        }
-        #focus .focus-content ul {
-            list-style: disc; 
-            padding-left: 20px;
-        }
-
-        #projects h2 {
-            font-size: 1.8rem;
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--text-color-dark);
-            opacity: 0.8;
         }
         
         @media (max-width: 1200px) {
